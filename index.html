@@ -1,29 +1,751 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        div {
-            width:80%;
-            height: 300px;
-            background-color: pink;
-        }
-    </style>
-</head>
-<body>
-    <div>
-        <span>a</span>
-        <span>b</span>
-        <span>c</span>
-    </div>
-    <script defer="defer">
-        // window.addEventListener('fetchmachine',()=>{
-        //     let cpu=window.cpu
-        // })
-        let processorId=window.HTMLPackHelper.machineCode
-    </script>
-</body>
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>学科同步教研</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/style.css" rel="stylesheet" />
+	</head>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/merge.js"></script>
+	<body>
+		<div class="top">
+			<p class="title">学科同步教研</p>
+			<p class="subject">初中化学</p>
+			<p class="grade">九年级下册</p>
+			<!-- <a href="javascript:void(0);">内容简介</a> -->
+		</div>
+		<div style="clear: both;"></div>
+		<div class="main">
+			<div class="left-bar">
+				<div class="navBox">
+					<div class="myDiv active1">
+						<p>第6章 溶解现象</p>
+					</div>
+					<ul class="listyle unit1" style="display: block;">
+						<li class="switchBtn active">
+							<a href="javascript:void(0);">
+								<h3>单元教材教法分析</h3>
+							</a>
+						</li>
+						<li class="switchBtn">
+							<a href="javascript:void(0);">
+								<h3>1 物质在水中的分散</h3>
+							</a>
+						</li>
+						<li class="switchBtn">
+							<a href="javascript:void(0);">
+								<h3>2 溶液组成的表示</h3>
+							</a>
+						</li>
+						<li class="switchBtn">
+							<a href="javascript:void(0);">
+								<h3>3 物质的溶解性</h3>
+							</a>
+						</li>
+					</ul>
+					<div class="myDiv">第7章 应用广泛的酸、碱、盐</div>
+					<ul class="listyle">
+						<li class="switchBtn active">
+							<a href="javascript:void(0);">
+								<h3>单元教材教法分析</h3>
+							</a>
+						</li>
+						<li class="switchBtn">
+							<a href="javascript:void(0);">
+								<h3>1 溶液的酸碱性</h3>
+							</a>
+						</li>
+						<li class="switchBtn">
+							<a href="javascript:void(0);">
+								<h3>2 常见的酸和碱</h3>
+							</a>
+						</li>
+						<li class="switchBtn">
+							<a href="javascript:void(0);">
+								<h3>3 几种重要的盐</h3>
+							</a>
+						</li>
+					</ul>
+					<div class="myDiv">第8章 食品中的有机化合物</div>
+					<ul class="listyle">
+						<li class="switchBtn active">
+							<a href="javascript:void(0);">
+								<h3>单元教材教法分析</h3>
+							</a>
+						</li>
+						<li class="switchBtn">
+							<a href="javascript:void(0);">
+								<h3>1 什么是有机化合物</h3>
+							</a>
+						</li>
+						<li class="switchBtn">
+							<a href="javascript:void(0);">
+								<h3>2 糖类　油脂</h3>
+							</a>
+						</li>
+						<li class="switchBtn">
+							<a href="javascript:void(0);">
+								<h3>3 蛋白质　维生素</h3>
+							</a>
+						</li>
+						<li class="switchBtn">
+							<a href="javascript:void(0);">
+								<h3>章节复习</h3>
+							</a>
+						</li>
+					</ul>
+					<div class="myDiv">第9章 化学与社会发展</div>
+					<ul class="listyle">
+						<li class="switchBtn active">
+							<a href="javascript:void(0);">
+								<h3>单元教材教法分析</h3>
+							</a>
+						</li>
+						<li class="switchBtn">
+							<a href="javascript:void(0);">
+								<h3>1 能源的综合利用</h3>
+							</a>
+						</li>
+						<li class="switchBtn">
+							<a href="javascript:void(0);">
+								<h3>2 新型材料的研制</h3>
+							</a>
+						</li>
+						<li class="switchBtn">
+							<a href="javascript:void(0);">
+								<h3>3 环境污染的防治</h3>
+							</a>
+						</li>
+						<li class="switchBtn">
+							<a href="javascript:void(0);">
+								<h3>章节复习</h3>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="right-part">
+				<!--第一单元-->
+				<ul class="list list1" style="display: block;">
+					<!--第一单元第1课-->
+					<li style="display: block;">
+						<p>单元教材教法分析</p>
+						<label></label>
+						<div style="clear: both;"></div>
+						<div class="piece">
+							<h4>单元教材教法分析</h4>
+							<div class="pic">
+								<img src="resource/dy.png" />
+								<div class="char">
+									<a href="javascript:void(0);" class="video" data="chapter6/dy/《溶解现象》教材教法分析" target="_self"><span>播放视频</span><img
+										 src="img/play.png" /></a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<!--第一单元第2课-->
+					<li>
+						<p>物质在水中的分散</p>
+						<label></label>
+						<div style="clear: both;"></div>
+						<div class="piece">
+							<h4>教学设计</h4>
+							<div class="pic">
+								<img src="resource/sj.png" />
+								<div class="char">
+									<a href="resource/chapter6/1/《物质在水中的分散》教学设计（第1课时）.docx"><span>教学设计1</span><img src="img/down.png" /></a>
+									<a href="resource/chapter6/1/《物质在水中的分散》教学设计（第2课时）.docx"><span>教学设计2</span><img src="img/down.png" /></a>
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>教学课件</h4>
+							<div class="pic">
+								<img src="resource/kj.png" />
+								<div class="char">
+									<a href="resource/chapter6/1/《物质在水中的分散》教学课件（第1课时）.pptx"><span>教学课件1</span><img src="img/down.png" /></a>
+									<a href="resource/chapter6/1/《物质在水中的分散》教学课件（第2课时）.pptx"><span>教学课件2</span><img src="img/down.png" /></a>
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>测试题</h4>
+							<div class="pic">
+								<img src="resource/cs.png" />
+								<div class="char">
+									<a href="resource/chapter6/1/《物质在水中的分散》测试题（第1课时）.docx"><span>测试题1</span><img src="img/down.png" /></a>
+									<a href="resource/chapter6/1/《物质在水中的分散》测试题（第2课时）.docx"><span>测试题2</span><img src="img/down.png" /></a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<!--第一单元第3课-->
+					<li>
+						<p>溶液组成的表示</p>
+						<label></label>
+						<div style="clear: both;"></div>
+						<div class="piece">
+							<h4>教学设计</h4>
+							<div class="pic">
+								<img src="resource/sj.png" />
+								<div class="char">
+									<a href="resource/chapter6/2/《溶液组成的表示》教学设计（第1课时）.docx"><span>教学设计1</span><img src="img/down.png" /></a>
+									<a href="resource/chapter6/2/《溶液组成的表示》教学设计（第2课时）.docx"><span>教学设计2</span><img src="img/down.png" /></a>
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>教学课件</h4>
+							<div class="pic">
+								<img src="resource/kj.png" />
+								<div class="char">
+									<a href="resource/chapter6/2/《溶液组成的表示》教学课件（第1课时）.pptx"><span>教学课件1</span><img src="img/down.png" /></a>
+									<a href="resource/chapter6/2/《溶液组成的表示》教学课件（第2课时）.pptx"><span>教学课件2</span><img src="img/down.png" /></a>
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>测试题</h4>
+							<div class="pic">
+								<img src="resource/cs.png" />
+								<div class="char">
+									<a href="resource/chapter6/2/《溶液组成的表示》测试题（第1课时）.docx"><span>测试题1</span><img src="img/down.png" /></a>
+									<a href="resource/chapter6/2/《溶液组成的表示》测试题（第2课时）.docx"><span>测试题2</span><img src="img/down.png" /></a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<!--第一单元第4课-->
+					<li class="special">
+						<p>物质的溶解性</p>
+						<label></label>
+						<div style="clear: both;"></div>
+						<div class="piece">
+							<h4>教学设计</h4>
+							<div class="pic">
+								<img src="resource/sj.png" />
+								<div class="char">
+									<a href="resource/chapter6/3/《物质的溶解性》教学设计（第1课时）.docx"><span>教学设计1</span><img src="img/down.png" /></a>
+									<a href="resource/chapter6/3/《物质的溶解性》教学设计（第2课时）.docx"><span>教学设计2</span><img src="img/down.png" /></a>
+									<a href="resource/chapter6/3/《物质的溶解性》教学设计（第3课时）.docx"><span>教学设计3</span><img src="img/down.png" /></a>
+									<a href="resource/chapter6/3/《物质的溶解性》教学设计（第4课时）.docx"><span>教学设计4</span><img src="img/down.png" /></a>
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>教学课件</h4>
+							<div class="pic">
+								<img src="resource/kj.png" />
+								<div class="char">
+									<a href="resource/chapter6/3/《物质的溶解性》教学课件（第1课时）.pptx"><span>教学课件1</span><img src="img/down.png" /></a>
+									<a href="resource/chapter6/3/《物质的溶解性》教学课件（第2课时）.pptx"><span>教学课件2</span><img src="img/down.png" /></a>
+									<a href="resource/chapter6/3/《物质的溶解性》教学课件（第3课时）.pptx"><span>教学课件3</span><img src="img/down.png" /></a>
+									<a href="resource/chapter6/3/《物质的溶解性》教学课件（第4课时）.pptx"><span>教学课件4</span><img src="img/down.png" /></a>
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>测试题</h4>
+							<div class="pic">
+								<img src="resource/cs.png" />
+								<div class="char">
+									<a href="resource/chapter6/3/《物质的溶解性》测试题（第1课时）.docx"><span>测试题1</span><img src="img/down.png" /></a>
+									<a href="resource/chapter6/3/《物质的溶解性》测试题（第2课时）.docx"><span>测试题2</span><img src="img/down.png" /></a>
+									<a href="resource/chapter6/3/《物质的溶解性》测试题（第3课时）.docx"><span>测试题3</span><img src="img/down.png" /></a>
+									<a href="resource/chapter6/3/《物质的溶解性》测试题（第4课时）.docx"><span>测试题4</span><img src="img/down.png" /></a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<!--第二单元-->
+				<ul class="list">
+					<!--第二单元第1课-->
+					<li style="display: block;">
+						<p>单元教材教法分析</p>
+						<label></label>
+						<div style="clear: both;"></div>
+						<div class="piece">
+							<h4>单元教材教法分析</h4>
+							<div class="pic">
+								<img src="resource/dy.png" />
+								<div class="char">
+									<a href="javascript:void(0);" class="video" data="chapter7/dy/《应用广泛的酸、碱、盐》单元教材教法分析" target="_self"><span>播放视频</span><img
+										 src="img/play.png" /></a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<!--第二单元第2课-->
+					<li>
+						<p>溶液的酸碱性</p>
+						<label></label>
+						<div style="clear: both;"></div>
+						<div class="piece">
+							<h4>教学设计</h4>
+							<div class="pic">
+								<img src="resource/sj.png" />
+								<div class="char">
+									<a href="resource/chapter7/1/《溶液的酸碱性》教学设计（第1课时）.docx"><span>教学设计1</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/1/《溶液的酸碱性》教学设计（第2课时）.docx"><span>教学设计2</span><img src="img/down.png" /></a>
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>教学课件</h4>
+							<div class="pic">
+								<img src="resource/kj.png" />
+								<div class="char">
+									<a href="resource/chapter7/1/《溶液的酸碱性》教学课件（第1课时）.pptx"><span>教学课件1</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/1/《溶液的酸碱性》教学课件（第2课时）.pptx"><span>教学课件2</span><img src="img/down.png" /></a>
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>测试题</h4>
+							<div class="pic">
+								<img src="resource/cs.png" />
+								<div class="char">
+									<a href="resource/chapter7/1/《溶液的酸碱性》测试题（第1课时）.docx"><span>测试题1</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/1/《溶液的酸碱性》测试题（第2课时）.docx"><span>测试题2</span><img src="img/down.png" /></a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<!--第二单元第3课-->
+					<li class="special">
+						<p>常见的酸和碱</p>
+						<label></label>
+						<div style="clear: both;"></div>
+						<div class="piece">
+							<h4>教学设计</h4>
+							<div class="pic">
+								<img src="resource/sj.png" />
+								<div class="char">
+									<a href="resource/chapter7/2/《常见的酸和碱》教学设计（第1课时）.docx"><span>教学设计1</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/2/《常见的酸和碱》教学设计（第2课时）.docx"><span>教学设计2</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/2/《常见的酸和碱》教学设计（第3课时）.docx"><span>教学设计3</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/2/《常见的酸和碱》教学设计（第4课时）.docx"><span>教学设计4</span><img src="img/down.png" /></a>
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>教学课件</h4>
+							<div class="pic">
+								<img src="resource/kj.png" />
+								<div class="char">
+									<a href="resource/chapter7/2/《常见的酸和碱》教学课件（第1课时）.pptx"><span>教学课件1</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/2/《常见的酸和碱》教学课件（第2课时）.pptx"><span>教学课件2</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/2/《常见的酸和碱》教学课件（第3课时）.pptx"><span>教学课件3</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/2/《常见的酸和碱》教学课件（第4课时）.pptx"><span>教学课件4</span><img src="img/down.png" /></a>
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>测试题</h4>
+							<div class="pic">
+								<img src="resource/cs.png" />
+								<div class="char">
+									<a href="resource/chapter7/2/《常见的酸和碱》测试题（第1课时）.docx"><span>测试题1</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/2/《常见的酸和碱》测试题（第2课时）.docx"><span>测试题2</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/2/《常见的酸和碱》测试题（第3课时）.docx"><span>测试题3</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/2/《常见的酸和碱》测试题（第4课时）.docx"><span>测试题4</span><img src="img/down.png" /></a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<!--第二单元第4课-->
+					<li class="special">
+						<p>几种重要的盐</p>
+						<label></label>
+						<div style="clear: both;"></div>
+						<div class="piece">
+							<h4>教学设计</h4>
+							<div class="pic">
+								<img src="resource/sj.png" />
+								<div class="char">
+									<a href="resource/chapter7/3/《几种重要的盐》教学设计（第1课时）.docx"><span>教学设计1</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/3/《几种重要的盐》教学设计（第2课时）.docx"><span>教学设计2</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/3/《几种重要的盐》教学设计（第3课时）.docx"><span>教学设计3</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/3/《几种重要的盐》教学设计（第4课时）.docx"><span>教学设计4</span><img src="img/down.png" /></a>
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>教学课件</h4>
+							<div class="pic">
+								<img src="resource/kj.png" />
+								<div class="char">
+									<a href="resource/chapter7/3/《几种重要的盐》教学课件（第1课时）.pptx"><span>教学课件1</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/3/《几种重要的盐》教学课件（第2课时）.pptx"><span>教学课件2</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/3/《几种重要的盐》教学课件（第3课时）.pptx"><span>教学课件3</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/3/《几种重要的盐》教学课件（第4课时）.pptx"><span>教学课件4</span><img src="img/down.png" /></a>
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>测试题</h4>
+							<div class="pic">
+								<img src="resource/cs.png" />
+								<div class="char">
+									<a href="resource/chapter7/3/《几种重要的盐》测试题（第1课时）.docx"><span>测试题1</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/3/《几种重要的盐》测试题（第2课时）.docx"><span>测试题2</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/3/《几种重要的盐》测试题（第3课时）.docx"><span>测试题3</span><img src="img/down.png" /></a>
+									<a href="resource/chapter7/3/《几种重要的盐》测试题（第4课时）.docx"><span>测试题4</span><img src="img/down.png" /></a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<!--第三单元-->
+				<ul class="list">
+					<!--第三单元第1课-->
+					<li style="display: block;">
+						<p>单元教材教法分析</p>
+						<label></label>
+						<div style="clear: both;"></div>
+						<div class="piece">
+							<h4>单元教材教法分析</h4>
+							<div class="pic">
+								<img src="resource/dy.png" />
+								<div class="char">
+									<a href="javascript:void(0);" class="video" data="chapter8/dy/《食品中的有机物》单元教材教法分析" target="_self"><span>播放视频</span><img
+										 src="img/play.png" /></a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<!--第三单元第2课-->
+					<li>
+						<p>什么是有机化合物</p>
+						<label></label>
+						<div style="clear: both;"></div>
+						<div class="piece">
+							<h4>教学设计</h4>
+							<div class="pic">
+								<img src="resource/sj.png" />
+								<div class="char">
+									<a href="resource/chapter8/1/《什么是有机化合物》教学设计.docx"><span>教学设计</span><img src="img/down.png" /></a>
+									
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>教学课件</h4>
+							<div class="pic">
+								<img src="resource/kj.png" />
+								<div class="char">
+									<a href="resource/chapter8/1/《什么是有机化合物》教学课件.pptx"><span>教学课件</span><img src="img/down.png" /></a>
+									
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>测试题</h4>
+							<div class="pic">
+								<img src="resource/cs.png" />
+								<div class="char">
+									<a href="resource/chapter8/1/《什么是有机化合物》测试题.docx"><span>测试题</span><img src="img/down.png" /></a>
+							
+								</div>
+							</div>
+						</div>
+					</li>
+					<!--第三单元第3课-->
+					<li>
+						<p>糖类　油脂</p>
+						<label></label>
+						<div style="clear: both;"></div>
+						<div class="piece">
+							<h4>教学设计</h4>
+							<div class="pic">
+								<img src="resource/sj.png" />
+								<div class="char">
+									<a href="resource/chapter8/2/《糖类　油脂》教学设计.docx"><span>教学设计</span><img src="img/down.png" /></a>
+									
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>教学课件</h4>
+							<div class="pic">
+								<img src="resource/kj.png" />
+								<div class="char">
+									<a href="resource/chapter8/2/《糖类　油脂》教学课件.pptx"><span>教学课件</span><img src="img/down.png" /></a>
+									
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>测试题</h4>
+							<div class="pic">
+								<img src="resource/cs.png" />
+								<div class="char">
+									<a href="resource/chapter8/2/《糖类　油脂》测试题.docx"><span>测试题</span><img src="img/down.png" /></a>
+							
+								</div>
+							</div>
+						</div>
+					</li>
+					<!--第三单元第4课-->
+					<li>
+						<p>糖类　油脂</p>
+						<label></label>
+						<div style="clear: both;"></div>
+						<div class="piece">
+							<h4>教学设计</h4>
+							<div class="pic">
+								<img src="resource/sj.png" />
+								<div class="char">
+									<a href="resource/chapter8/3/《蛋白质　维生素》教学设计.docx"><span>教学设计</span><img src="img/down.png" /></a>
+									
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>教学课件</h4>
+							<div class="pic">
+								<img src="resource/kj.png" />
+								<div class="char">
+									<a href="resource/chapter8/3/《蛋白质　维生素》教学课件.pptx"><span>教学课件</span><img src="img/down.png" /></a>
+									
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>测试题</h4>
+							<div class="pic">
+								<img src="resource/cs.png" />
+								<div class="char">
+									<a href="resource/chapter8/3/《糖蛋白质　维生素》测试题.docx"><span>测试题</span><img src="img/down.png" /></a>
+							
+								</div>
+							</div>
+						</div>
+					</li>
+					<!--第三单元第4课-->
+					<li>
+						<p>章节复习</p>
+						<label></label>
+						<div style="clear: both;"></div>
+						<div class="piece">
+							<h4>教学设计</h4>
+							<div class="pic">
+								<img src="resource/sj.png" />
+								<div class="char">
+									<a href="resource/chapter8/4/《章节复习》教学设计.docx"><span>教学设计</span><img src="img/down.png" /></a>
+									
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>教学课件</h4>
+							<div class="pic">
+								<img src="resource/kj.png" />
+								<div class="char">
+									<a href="resource/chapter8/4/《章节复习》教学课件.pptx"><span>教学课件</span><img src="img/down.png" /></a>
+									
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>测试题</h4>
+							<div class="pic">
+								<img src="resource/cs.png" />
+								<div class="char">
+									<a href="resource/chapter8/4/《章节复习》测试题.docx"><span>测试题</span><img src="img/down.png" /></a>
+							
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<!--第四单元-->
+				<ul class="list">
+					<!--第四单元第1课-->
+					<li style="display: block;">
+						<p>单元教材教法分析</p>
+						<label></label>
+						<div style="clear: both;"></div>
+						<div class="piece">
+							<h4>单元教材教法分析</h4>
+							<div class="pic">
+								<img src="resource/dy.png" />
+								<div class="char">
+									<a href="javascript:void(0);" class="video" data="chapter9/dy/《化学与社会发展》单元教材教法分析" target="_self"><span>播放视频</span><img
+										 src="img/play.png" /></a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<!--第四单元第2课-->
+					<li>
+						<p>能源的综合利用</p>
+						<label></label>
+						<div style="clear: both;"></div>
+						<div class="piece">
+							<h4>教学设计</h4>
+							<div class="pic">
+								<img src="resource/sj.png" />
+								<div class="char">
+									<a href="resource/chapter9/1/《能源的综合利用》教学设计.docx"><span>教学设计</span><img src="img/down.png" /></a>
+									
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>教学课件</h4>
+							<div class="pic">
+								<img src="resource/kj.png" />
+								<div class="char">
+									<a href="resource/chapter9/1/《能源的综合利用》教学课件.pptx"><span>教学课件</span><img src="img/down.png" /></a>
+									
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>测试题</h4>
+							<div class="pic">
+								<img src="resource/cs.png" />
+								<div class="char">
+									<a href="resource/chapter9/1/《能源的综合利用》测试题.docx"><span>测试题</span><img src="img/down.png" /></a>
+							
+								</div>
+							</div>
+						</div>
+					</li>
+					<!--第四单元第3课-->
+					<li>
+						<p>新型材料的研制</p>
+						<label></label>
+						<div style="clear: both;"></div>
+						<div class="piece">
+							<h4>教学设计</h4>
+							<div class="pic">
+								<img src="resource/sj.png" />
+								<div class="char">
+									<a href="resource/chapter9/2/《新型材料的研制》教学设计.docx"><span>教学设计</span><img src="img/down.png" /></a>
+									
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>教学课件</h4>
+							<div class="pic">
+								<img src="resource/kj.png" />
+								<div class="char">
+									<a href="resource/chapter9/2/《新型材料的研制》教学课件.pptx"><span>教学课件</span><img src="img/down.png" /></a>
+									
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>测试题</h4>
+							<div class="pic">
+								<img src="resource/cs.png" />
+								<div class="char">
+									<a href="resource/chapter9/2/《新型材料的研制》测试题.docx"><span>测试题</span><img src="img/down.png" /></a>
+							
+								</div>
+							</div>
+						</div>
+					</li>
+					<!--第四单元第4课-->
+					<li>
+						<p>环境污染的防治</p>
+						<label></label>
+						<div style="clear: both;"></div>
+						<div class="piece">
+							<h4>教学设计</h4>
+							<div class="pic">
+								<img src="resource/sj.png" />
+								<div class="char">
+									<a href="resource/chapter9/3/《环境污染的防治》教学设计.docx"><span>教学设计</span><img src="img/down.png" /></a>
+									
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>教学课件</h4>
+							<div class="pic">
+								<img src="resource/kj.png" />
+								<div class="char">
+									<a href="resource/chapter9/3/《环境污染的防治》教学课件.pptx"><span>教学课件</span><img src="img/down.png" /></a>
+									
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>测试题</h4>
+							<div class="pic">
+								<img src="resource/cs.png" />
+								<div class="char">
+									<a href="resource/chapter9/3/《环境污染的防治》测试题.docx"><span>测试题</span><img src="img/down.png" /></a>
+							
+								</div>
+							</div>
+						</div>
+					</li>
+					
+					<li>
+						<p>章节复习</p>
+						<label></label>
+						<div style="clear: both;"></div>
+						<div class="piece">
+							<h4>教学设计</h4>
+							<div class="pic">
+								<img src="resource/sj.png" />
+								<div class="char">
+									<a href="resource/chapter9/4/《章节复习》教学设计.docx"><span>教学设计</span><img src="img/down.png" /></a>
+									
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>教学课件</h4>
+							<div class="pic">
+								<img src="resource/kj.png" />
+								<div class="char">
+									<a href="resource/chapter9/4/《章节复习》教学课件.pptx"><span>教学课件</span><img src="img/down.png" /></a>
+									
+								</div>
+							</div>
+						</div>
+						<div class="piece">
+							<h4>测试题</h4>
+							<div class="pic">
+								<img src="resource/cs.png" />
+								<div class="char">
+									<a href="resource/chapter9/4/《章节复习》测试题.docx"><span>测试题</span><img src="img/down.png" /></a>
+							
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--弹窗播放开始-->
+		<div id="playback" style=" display:none; background:rgba(118,118,118,0.7); position:fixed; left:0; top:0; width:100%; height:100%"></div>
+		<div id="v_box">
+			<div class="row">
+				<div class="col-xs-9 h3-l">
+					<h3></h3>
+				</div>
+				<div class="col-xs-3 shut-v">
+					<a id="shut">×</a>
+				</div>
+			</div>
+
+			<div id="video"></div>
+		</div>
+		<!--弹窗播放结束-->
+		<div class="foot">
+			<p>Copyright © 2020 电化教育电子音像出版社 All rights reserved.</p>
+		</div>
+		<script src="js/MiniDialog-es5.min.js"></script>
+		<script src="js/eject.js"></script>
+	</body>
+
 </html>

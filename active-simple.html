@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品激活</title>
+    <link rel="stylesheet" href="css/element-ui.min.css">
+    <script src="js/crypto-js.min.js"></script>
+    <script>
+        const home = "index.html";
+        const url = "https://api.bjysx.com.cn";
+        const ysx_key = '496D7DDBD5E14A83B83F67E9AF6A3CBD';
+        (function () {
+            try {
+                const activation_code = localStorage.getItem('activation_code')
+                let machine_code = ''
+                if (window.HTMLPackHelper && window.HTMLPackHelper.machineCode) {
+                    machine_code = window.HTMLPackHelper.machineCode
+                } else {
+                    machine_code = "88888888"
+                }
+                if (activation_code) {
+                    let bytes = CryptoJS.AES.decrypt(activation_code, ysx_key)
+                    let decoded = JSON.parse(bytes.toString(CryptoJS.enc.Utf8))
+                    if (decoded.machine_code === machine_code) {
+                        window.location.href = home
+                    }
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        })()
+    </script>
+    <style>
+        * {
+            font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif !important;
+        }
+
+        body {
+            background: url(img/bg.png) repeat 50% 0%;
+        }
+
+        .activation {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 660px;
+            margin-left: -250px;
+            margin-top: -330px;
+            border-bottom: 2px solid #74c6ff;
+        }
+
+        .activation .el-card__header {
+            color: #fff;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 200;
+        }
+
+        .activation .el-input__inner {
+            border-radius: 22px;
+            background: #f1f1f1;
+        }
+
+        .activation .el-form-item__label {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 40px;
+        }
+
+        .activation .el-form-item {
+            margin-bottom: 36px;
+        }
+
+        .border {
+            display: block;
+            width: 8px;
+            height: 8px;
+            border-radius: 8px;
+            border: 2px solid #41a7f2;
+            margin-right: 10px;
+        }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+        }
+
+        .btn-submit-parent {
+            text-align: center;
+            margin: 56px 0 64px 0;
+        }
+
+        .btn-submit-parent .el-button {
+            border-radius: 0;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header-title {
+            margin: 0 auto 48px auto;
+            padding-bottom: 6px;
+            color: #0e1712;
+            font-weight: 500;
+            font-size: 20px;
+            border-bottom: 2px solid #74c6ff;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <el-card class="activation">
+            <div slot="header" class="clearfix">
+                <img src="img/key.png" alt="" class="logo">
+                <div v-text="'产品激活'" class="header-title"></div>
+            </div>
+            <el-form :hide-required-asterisk="true" label-width="50px" :inline-message="false" :show-message="true"
+                :model="activation" status-icon :rules="rules" ref="activation_form" label-width="100px">
+                <el-form-item prop="machine_code">
+                    <span slot="label" class="border"></span>
+                    <el-input placeholder="请输入机器码" type="text" :readonly="true" v-model="activation.machine_code"
+                        autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item prop="regcode">
+                    <span slot="label" class="border"></span>
+                    <el-input clearable placeholder="请输入注册码" type="text" v-model.trim="activation.regcode"
+                        autocomplete="off">
+                    </el-input>
+                </el-form-item>
+                <el-form-item prop="username">
+                    <span slot="label" class="border"></span>
+                    <el-input clearable placeholder="请输入用户名称" v-model.trim="activation.username"></el-input>
+                </el-form-item>
+                <div class="btn-submit-parent">
+                    <el-button :loading="active_loading" type="primary" class="btn-submit" @click="activeNow()">
+                        <span v-text="button"></span>
+                    </el-button>
+                </div>
+            </el-form>
+        </el-card>
+    </div>
+    <script src="js/ysx.min.js"></script>
+    <script>
+        var checkRegCode = (rule, value, callback) => {
+            //console.log(rule.product)
+            if (!value) {
+                return callback(new Error('请输入注册码'));
+            }
+            if (!value.startsWith(rule.product)) {
+                callback(new Error('无效的注册码'));
+            } else {
+                callback();
+            }
+        };
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    button: '立即激活',
+                    active_loading: false,
+                    activation: {
+                        regcode: '',
+                        username: '',
+                        machine_code: '',
+                    },
+                    rules: {
+                        machine_code: [
+                            { required: true, message: '请输入机器码', trigger: 'blur' }
+                        ],
+                        regcode: [
+                            { product: "ABCD", validator: checkRegCode, trigger: 'blur' }
+                        ],
+                        username: [
+                            { required: true, message: '请输入用户名称', trigger: 'blur' }
+                        ]
+                    }
+                }
+            },
+            methods: {
+                async activeNow() {
+                    this.$refs['activation_form'].validate(async valid => {
+                        if (!valid) {
+                            return false;
+                        };
+                        this.active_loading = true;
+                        try {
+                            let activation = this.cloneDeep(this.activation)
+                            delete activation.area
+                            activation.timestamp = Date.now()
+                            const response = await axios.post(`${url}/active`, {
+                                payload: CryptoJS.AES.encrypt(JSON.stringify(activation), ysx_key).toString()
+                            }, {
+                                headers: {
+                                    't-access-token': 'dgXF6iFCiCWTEfP4lR7CzOpaSOrN2gUXEyHfz0sEW3JceOZKdzY7W'
+                                }
+                            })
+                            let { activation_code } = response.data
+                            let bytes = CryptoJS.AES.decrypt(activation_code, ysx_key)
+                            let { machine_code, regcode } = JSON.parse(bytes.toString(CryptoJS.enc.Utf8))
+                            if (activation.regcode === regcode && activation.machine_code === machine_code) {
+                                localStorage.setItem('activation_code', activation_code)
+                                this.$alert('软件已成功激活，感谢您的使用', '激活提示', {
+                                    confirmButtonText: '确定',
+                                    showClose: false,
+                                    type: 'success',
+                                    callback: action => {
+                                        window.location.href = home
+                                    }
+                                });
+                            } else {
+                                throw new Error('InvalidActivation')
+                            }
+                        } catch (err) {
+                            if (err.response && err.response.data) {
+                                this.$message({
+                                    type: 'error',
+                                    message: err.response.data.message,
+                                    duration: 2000
+                                })
+                            } else {
+                                console.log(err);
+                                this.$message({
+                                    type: 'error',
+                                    message: '激活失败',
+                                    duration: 2000
+                                })
+                            }
+                        }
+                        this.active_loading = false;
+                    });
+                },
+                cloneDeep(value) {
+                    return JSON.parse(JSON.stringify(value))
+                }
+            },
+            created() {
+                if (window.HTMLPackHelper && window.HTMLPackHelper.machineCode) {
+                    this.activation.machine_code = window.HTMLPackHelper.machineCode
+                } else {
+                    this.activation.machine_code = "88888888"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

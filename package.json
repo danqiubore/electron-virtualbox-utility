@@ -47,9 +47,9 @@
   "devDependencies": {
     "electron": "^12.0.2",
     "electron-builder": "^22.10.5",
-    "enigmavirtualbox": "^0.9.10",
-    "generate-evb": "^1.0.3",
     "iconv-lite": "^0.6.2"
   },
-  "dependencies": {}
+  "dependencies":{
+    "iconv-lite": "^0.6.2"
+  }
 }
