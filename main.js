@@ -1,7 +1,13 @@
-const { app,BrowserWindow,protocol }=require('electron')
+const { app,BrowserWindow,protocol,session }=require('electron')
 const path=require('path')
 const fs=require('fs')
 const mime=require('mime-types')
+const {net} =require('electron')
+
+let child_prcess=require('child_process')
+let exec=child_prcess.exec
+let openExec;
+global.mainWindow=null
 
 let ENCRYPT_VAL = new Array(
     65, 68, 54, 52, 65, 53, 69, 48,
@@ -10,7 +16,18 @@ let ENCRYPT_VAL = new Array(
     65, 52, 68, 69, 54, 65, 53, 48
 )
 
-async function createWindow(){
+openExec=exec('node ./server.js',{timeout:1000},function(error,stdout,stderr){
+    if (error) {
+        console.log(error.stack);
+        console.log('Error code: ' + error.code);
+        return;
+      }
+      console.log('使用exec方法输出: ' + stdout);
+      console.log(`stderr: ${stderr}`);
+      console.log(process.pid)
+      global.mainWindow.loadURL('http://127.0.0.1:3000/')
+})
+function createWindow(){
     const win=new BrowserWindow({
         width:800,
         height:600,
@@ -19,13 +36,14 @@ async function createWindow(){
             preload:path.join(__dirname,'./preload.js')
         }
     })
-
+    global.mainWindow=win
     // win.loadFile('index.html')
-    win.loadFile('./resources/index.html')
+    // win.url('http://127.0.0.1:3030')
     // win.webContents.openDevTools()
 }
 
 app.whenReady().then(()=>{
+
     createWindow()
 
     app.on('activate',()=>{
@@ -33,67 +51,6 @@ app.whenReady().then(()=>{
             createWindow()
         }
     })
-
-    
-    // protocol.interceptBufferProtocol ('file', function(request, callback){
-
-    //     let filePath = request.url.substr(8);  // 截取file:///之后的内容，也就是我们需要的 
-    //     filePath = path.normalize(filePath);
-
-    //     fs.readFile(filePath, (err, data) => {
-    //         if (err) {
-    //           // report error
-    //           callback()
-    //         } else {
-    //             if(request.url.indexOf('.mp4')<0){
-    //                 callback(data)
-    //                 return
-    //             }
-    //           //对获取到的data数据进行解密
-    //         //   let key=[data[0],data[1],data[2]]
-    //         //   let keyStr=key.toString().replace(/,/g,'')
-    //         //   let keyInt=Number.parseInt(keyStr)
-    //         //   let divData=data.slice(3)
-    //         //   let newData=decryptByKey(divData,keyInt)
-    //           callback({
-    //               mimeType:mime.contentType(filePath),
-    //               data:data
-    //           })
-    //         }
-    //     })
-    // })
-
-
-
-    protocol.interceptFileProtocol ('file', function(request, callback){
-
-        let filePath = request.url.substr(8);  // 截取file:///之后的内容，也就是我们需要的 
-        filePath = path.normalize(filePath);
-        if(request.url.indexOf('.mp4')<0){
-            callback(filePath
-                )
-            return
-        }
-        
-        fs.readFile(filePath, (err, data) => {
-            if (err) {
-              // report error
-              callback()
-            } else {
-
-            //   对获取到的data数据进行解密
-              let key=[data[0],data[1],data[2]]
-              let keyStr=key.toString().replace(/,/g,'')
-              let keyInt=Number.parseInt(keyStr)
-              let splitData=data.slice(3)
-              let newData=decryptByKey(splitData,keyInt)
-              callback({
-                data:null
-              })
-            }
-        })
-    })
-
 })
 function decryptByKey(bytes,key){
     for (let i = 0; i < bytes.length; i++) {
@@ -106,6 +63,20 @@ function decryptByKey(bytes,key){
 app.on('window-all-closed',()=>{
     if(process.platform != 'darwin'){
         app.quit()
+            // 判断openExec是否存在，存在就杀掉node进程
+    if (!openExec) {
+        // console.log('openExec is null')
+      } else {
+        exec('taskkill /f /t /im node.exe', function (error, stdout, stderr) {
+          if (error) {
+            console.log(error.stack);
+            console.log('Error code: ' + error.code);
+            return;
+          }
+          console.log('使用exec方法输出: ' + stdout);
+          console.log(`stderr: ${stderr}`);
+        });
+      }
     }
 })
 app.on('web-contents-created', (e, webContents) => {
